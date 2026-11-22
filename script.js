@@ -1,24 +1,6 @@
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/13.4.0/firebase-app.js";
 
-import {
-    getFirestore,
-    collection,
-    addDoc,
-    getDocs,
-    deleteDoc,
-    doc,
-    updateDoc
-} from "https://www.gstatic.com/firebasejs/13.4.0/firebase-firestore.js";
-
-import {
-    getAuth,
-    GoogleAuthProvider,
-    signInWithPopup,
-    onAuthStateChanged,
-    signOut
-} from "https://www.gstatic.com/firebasejs/13.4.0/firebase-auth.js";
-
 // Firebase beállítások
 const firebaseConfig = {
     apiKey: "AIzaSyA92juG_RYS36AZYM9NVoLmlGsDoaIPVx0",
@@ -31,51 +13,6 @@ const firebaseConfig = {
 
 // Firebase elindítása
 const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-
-// Bejelentkezés beállítása
-const auth = getAuth(app);
-const provider = new GoogleAuthProvider();
-
-const belepesBtn = document.getElementById("belepesBtn");
-const felhasznaloNev = document.getElementById("felhasznaloNev");
-const kijelentkezesBtn = document.getElementById("kijelentkezesBtn");
-
-// Google-belépés
-belepesBtn.addEventListener("click", async function() {
-    try {
-        console.log("A bejelentkezés gomb működik!");
-
-        const eredmeny = await signInWithPopup(auth, provider);
-
-        felhasznaloNev.textContent =
-            "Bejelentkezve: " + eredmeny.user.displayName;
-
-    } catch (hiba) {
-        alert("Hiba történt a bejelentkezéskor!");
-        console.error(hiba);
-    }
-});
-
-// Bejelentkezési állapot figyelése
-onAuthStateChanged(auth, function(user) {
-    if (user) {
-        felhasznaloNev.textContent =
-            "Bejelentkezve: " + user.displayName;
-    } else {
-        felhasznaloNev.textContent = "";
-    }
-});
-
-// Google-kijelentkezés
-kijelentkezesBtn.addEventListener("click", async function() {
-    try {
-        await signOut(auth);
-        felhasznaloNev.textContent = "";
-    } catch (hiba) {
-        console.error("Kijelentkezési hiba:", hiba);
-    }
-});
 
 // Feladatok mentése
 function mentes(listaAzonosito) {
