@@ -1,0 +1,47 @@
+body {
+    background-color: black;
+    color: rgb(47, 136, 196);
+    font-family: Arial;
+    font-size: 20px;
+}
+
+h1 {
+    color: blue;
+    text-align: center;
+}
+
+h2 {
+    color: #0a9196;
+}
+
+p {
+    font-size: 20px;
+}
+.kartya {
+    background-color: #031042;
+    padding: 30px;
+    margin: 20px;
+    border-radius: 25px;
+    border: 1px rgb(2, 2, 29);
+}
+button {
+    background-color: #031042;
+    color: rgb(13, 130, 74);
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+.torlesGomb {
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.torlesGomb:hover {
+    background-color: darkred;
+}
